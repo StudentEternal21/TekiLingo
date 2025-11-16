@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import TrendingNews  from "@/components/TrendingNews"; 
 import { CourseCard } from "@/components/CourseCard";
 
-import { FloatingChatTabButton } from "@/components/FloatingChatTabButton"; 
+
 
 // Mock Data
 const COURSES = [
@@ -76,7 +76,6 @@ export default function HomeScreen() {
         </View>
       </ScrollView>
 
-      <FloatingChatTabButton/>
     </View>
   );
 }
