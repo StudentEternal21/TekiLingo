@@ -18,7 +18,7 @@ const CustomTabBarButton = ({ children, onPress }: any) => (
       })
     }}
   >
-    <View className="w-16 h-16 rounded-full bg-orange-400 border-[4px] border-gray-100 justify-center items-center">
+    <View className="w-20 h-20 rounded-full bg-orange-400 border-[4px] border-gray-100 justify-center items-center">
       {children}
     </View>
   </TouchableOpacity>

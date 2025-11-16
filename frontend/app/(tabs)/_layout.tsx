@@ -1,32 +1,7 @@
 import { Tabs } from "expo-router";
-import { View, TouchableOpacity, Platform } from "react-native";
-import { Home, Search, MessageCircle, Mail } from "lucide-react-native";
-import '../globals.css';
-// 🎨 Custom Floating Button Component using NativeWind
-const CustomTabBarButton = ({ children, onPress }: any) => (
-  <TouchableOpacity
-    onPress={onPress}
-    style={{
-      top: -30, // Hard to do negative top with standard tailwind classes sometimes, keeping style for precision
-      justifyContent: 'center',
-      alignItems: 'center',
-      ...Platform.select({
-        ios: {
-          shadowColor: '#000',
-          shadowOffset: { width: 0, height: 10 },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.5,
-        },
-        android: { elevation: 5 },
-      })
-    }}
-  >
-    {/* NativeWind Styling Here: Orange circle with white border */}
-    <View className="w-16 h-16 rounded-full bg-orange-400 border-[4px] border-gray-100 justify-center items-center">
-      {children}
-    </View>
-  </TouchableOpacity>
-);
+import { View } from "react-native";
+import { Home, Search, MessageCircle } from "lucide-react-native";
+import  CustomTabBarButton  from "@/components/CustomTabBarButton";
 
 export default function TabLayout() {
   return (
@@ -40,9 +15,9 @@ export default function TabLayout() {
           left: 0,
           right: 0,
           elevation: 0,
-          backgroundColor: '#f3f4f6', // Matches bg-gray-100
+          backgroundColor: '#f3f4f6',
           borderTopWidth: 0,
-          height: 90, 
+          height: 90,
           paddingBottom: 30,
         },
         tabBarActiveTintColor: '#1f2937',
@@ -56,15 +31,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <Home size={24} color={color} />,
         }}
       />
-      <Tabs.Screen
-        name="discover"
-        options={{
-          title: "Discover",
-          tabBarIcon: ({ color }) => <Search size={24} color={color} />,
-        }}
-      />
-      
-      {/* MIDDLE TAB: CONSULT */}
+
       <Tabs.Screen
         name="consult"
         options={{
@@ -74,6 +41,13 @@ export default function TabLayout() {
         }}
       />
 
+      <Tabs.Screen
+        name="discover"
+        options={{
+          title: "Discover",
+          tabBarIcon: ({ color }) => <Search size={24} color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
