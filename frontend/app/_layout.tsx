@@ -1,5 +1,26 @@
-import { Stack } from "expo-router";
+import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import './globals.css';
-export default function RootLayout() {
-  return <Stack />;
+
+const _layout = () => {
+  return (
+    <>
+      <StatusBar style="dark" />
+      <Stack screenOptions={{ headerShown: false }}>
+
+        <Stack.Screen name="(tabs)" />
+
+        <Stack.Screen 
+          name="course/[id]" 
+          options={{ 
+            presentation: 'card',
+            headerShown: false 
+          }} 
+        />
+      </Stack>
+    </>
+  );
 }
+
+export default _layout;

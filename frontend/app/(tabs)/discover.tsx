@@ -5,7 +5,7 @@ const Discover = () => {
   return (
     <View>
       <Text>Discover</Text>
-    </View>
+    </View> 
   )
 }
 
