@@ -1,5 +1,5 @@
-import { View, Text, Image, ScrollView, TouchableOpacity, Dimensions } from "react-native";
-
+import { View, Text, Image, ScrollView, TouchableOpacity, Dimensions, Pressable, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
+import React, {useState} from "react";
 const { width } = Dimensions.get('window');
 
 const TRENDING_DATA = [
@@ -28,41 +28,68 @@ const TRENDING_DATA = [
 
 
 const TrendingNews = () => {
+
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const scrollPosition = event.nativeEvent.contentOffset.x;
+    const index = Math.round(scrollPosition / width);
+    
+    setActiveIndex(index);
+
+    };
+
+    
   return (
 <View>
     <ScrollView 
       horizontal 
       showsHorizontalScrollIndicator={false}
-      snapToInterval={width - 32}
+      snapToInterval={width}
       decelerationRate="fast"
-      contentContainerStyle={{ paddingHorizontal: 16, paddingVertical: 8 }}
+      contentContainerStyle={{ paddingHorizontal: 0, paddingVertical: 8 }}
+      pagingEnabled
+      onMomentumScrollEnd={handleScroll}
     >
       {TRENDING_DATA.map((item) => (
-        <TouchableOpacity 
+        <Pressable
           key={item.id}
-          className={`mr-4 h-48 rounded-3xl overflow-hidden relative shadow-lg ${item.color}`}
-          style={{ width: width - 48 }} 
+          className={` h-48 overflow-hidden relative shadow-lg ${item.color}`}
+          style={{ width: width}} 
         >
-          <Image 
-            source={{ uri: item.image }} 
-            className="absolute w-full h-full opacity-60"
-          />
-          <View className="p-6 justify-center h-full">
-             <Text className="text-white text-2xl font-bold mb-2">{item.title}</Text>
-             <Text className="text-gray-200 text-xs w-3/4 mb-4 leading-5">
-               {item.desc}
-             </Text>
-             <Text className="text-white text-xs font-bold underline">learn more</Text>
-          </View>
-        </TouchableOpacity>
+            {({ pressed }) => (
+            <>
+            <Image 
+                source={{ uri: item.image }} 
+                className="absolute w-full h-full opacity-60"
+            />
+            <View className="p-6 justify-center h-full">
+                <Text className="text-white text-2xl font-bold mb-2">{item.title}</Text>
+                <Text className="text-gray-200 text-xs w-3/4 mb-4 leading-5">
+                {item.desc}
+                </Text>
+                <Text className="text-white text-xs font-bold underline">learn more</Text>
+
+            </View>
+            {pressed && (
+                <View className="absolute w-full h-full bg-black opacity-20" />
+              )}
+            </>
+          )}
+        </Pressable>
       ))}
     </ScrollView>
-    
     <View className="flex-row justify-center gap-2 mt-1">
-      <View className="w-2 h-2 rounded-full bg-slate-400" />
-      <View className="w-2 h-2 rounded-full bg-slate-300" />
-      <View className="w-2 h-2 rounded-full bg-slate-300" />
-    </View>
+      {TRENDING_DATA.map((_, index) => (
+        <View
+          key={index}
+          className={`
+            w-3 h-3 rounded-full 
+            ${activeIndex === index ? 'bg-slate-600' : 'bg-slate-300'}
+          `}
+        />
+        ))}
+    </View>         
   </View>
   )
 }

@@ -46,7 +46,7 @@ export default function HomeScreen() {
 
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         <View className="mt-4">
-          <Text className="text-xl font-bold text-slate-700 mb-4 pl-6">Trending News</Text>
+          <Text className="text-xl font-bold text-slate-700 pl-2">Trending News</Text>
           <TrendingNews/>
         </View>
         
