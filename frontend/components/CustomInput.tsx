@@ -9,6 +9,7 @@ interface CustomInputProps {
   label: string;
   secureTextEntry?: boolean;
   keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad';
+  showLable?: boolean;
 }
 
 export default function CustomInput({
@@ -18,13 +19,17 @@ export default function CustomInput({
   label,
   secureTextEntry = false,
   keyboardType = "default",
+  showLable = true
 } : CustomInputProps) {
 
   const [isFocused, setIsFocused] = React.useState(false);
 
   return (
     <View className='w-full'>
-      <Text className='label pb-3'>{label}</Text> 
+      {
+        showLable &&
+        <Text className='label pb-3'>{label}</Text> 
+      }
       <TextInput 
         autoCapitalize='none' 
         autoCorrect={false} 
@@ -38,7 +43,7 @@ export default function CustomInput({
 
         placeholder={placeholder}
         placeholderTextColor={"#a0a0a0ff"}
-        className='rounded-md p-3 bg-white w-full'
+        className='rounded-full p-5 bg-white w-full h-15 border'
         />
     </View>
   )

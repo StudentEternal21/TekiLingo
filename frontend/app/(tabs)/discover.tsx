@@ -8,7 +8,6 @@ import { CourseCard } from '@/components/CourseCard';
 export default function ConsultScreen() {
   return (
     <SafeAreaView className="items-center bg-gray-100">
-      <Header />
       <FlatList
         data = {DISCOVER_DATA}
         numColumns={3}
@@ -16,13 +15,14 @@ export default function ConsultScreen() {
           return (<CourseCard key={item.id} {...item}></CourseCard>);
         }}
         ListHeaderComponent={() => { return (
-          <View className="w-full px-4 mt-4 mb-5">
+          <View className="w-full mt-4 mb-5">
             <CustomInput 
               label='Search' 
               placeholder='Enter course title' 
               value={""} 
               onChangeText={() => {}} 
               keyboardType="default"
+              showLable={false}
             ></CustomInput>
           </View>
         );}}
