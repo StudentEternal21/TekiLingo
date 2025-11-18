@@ -11,6 +11,7 @@ const _layout = () => {
 
         <Stack.Screen name="(tabs)" />
 
+        {/* Is this being used? */}
         <Stack.Screen 
           name="course/[id]" 
           options={{ 

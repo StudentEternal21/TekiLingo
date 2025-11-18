@@ -1,30 +1,8 @@
-import { View, Text, Image, ScrollView, TouchableOpacity, Dimensions, Pressable, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
+import { View, Text, Image, ScrollView, Dimensions, Pressable, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
 import React, {useState} from "react";
+import { TRENDING_DATA } from "@/constants/mockdata";
 const { width } = Dimensions.get('window');
 
-const TRENDING_DATA = [
-  {
-    id: 1,
-    title: "AI Voice Scams",
-    desc: "Synthesized voices are being used for scams. Be careful who you talk to.",
-    image: "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?auto=format&fit=crop&w=800&q=80",
-    color: "bg-purple-900"
-  },
-  {
-    id: 2,
-    title: "Quantum Computing",
-    desc: "Understanding the basics of Qubits and the future of processing power.",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80",
-    color: "bg-blue-900"
-  },
-  {
-    id: 3,
-    title: "Cybersecurity 101",
-    desc: "Essential habits to protect your digital identity in 2025.",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
-    color: "bg-slate-900"
-  }
-];
 
 
 const TrendingNews = () => {

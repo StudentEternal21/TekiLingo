@@ -3,7 +3,7 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <View className='flex-row justify-between items-center px-6 pt-16 pb-4 bg-gray-100'>
+    <View className='flex-row justify-between items-center px-6 pb-3 bg-gray-100'>
       <View className="flex-row items-center gap-1">
         <View className="w-10 h-10 rounded-full bg-orange-500 justify-center items-center">
           <Text className="text-white font-bold text-xs">TEKO</Text>

@@ -3,16 +3,15 @@ import Header from "@/components/Header";
 import TrendingNews  from "@/components/TrendingNews"; 
 import { CourseCard } from "@/components/CourseCard";
 import { COURSES, RECOMMENDED } from "@/constants/mockdata";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 
 export default function HomeScreen() {
   return (
-    <View className="flex-1 bg-gray-100">
-      <Header/>
-
+    <SafeAreaView className="flex-1 bg-gray-100">
+      <Header />
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         <View className="mt-4">
-          <Text className="text-xl font-bold text-slate-700 pl-2">Trending News</Text>
           <TrendingNews/>
         </View>
         
@@ -42,6 +41,6 @@ export default function HomeScreen() {
         </View>
       </ScrollView>
 
-    </View>
+    </SafeAreaView>
   );
 }
