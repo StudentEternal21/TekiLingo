@@ -1,8 +1,9 @@
-import { Tabs } from "expo-router";
+import { Tabs, useSegments } from "expo-router";
 import { Home, Search, MessageCircle } from "lucide-react-native";
 import  CustomTabBarButton  from "@/components/CustomTabBarButton";
 
 export default function TabLayout() {
+  const segments = useSegments();
   return (
     <Tabs
       screenOptions={{
@@ -37,6 +38,9 @@ export default function TabLayout() {
           title: "Consult",
           tabBarButton: (props) => <CustomTabBarButton {...props} />,
           tabBarIcon: () => <MessageCircle size={28} color="#ffffff" fill="currentColor" />,
+          tabBarStyle: {
+            display: 'none',
+          }
         }}
       />
 
