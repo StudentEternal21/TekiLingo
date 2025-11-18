@@ -16,7 +16,6 @@ export const CourseCard = ({ id, title, subtitle, image }: CourseCardProps) => {
       //! Causes an error: Upon implementation of backend. 
       //! Remove the comment slashes to enable navigation and import router.
       //onPress={() => router.push(`/course/${id}`)} 
-      
       className="relative w-32 h-48 mr-3 rounded-2xl overflow-hidden bg-slate-800"
     >
       

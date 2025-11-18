@@ -1,6 +1,7 @@
 import { View, Text, Image, ScrollView, Dimensions, Pressable, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
 import React, {useState} from "react";
 import { TRENDING_DATA } from "@/constants/mockdata";
+
 const { width } = Dimensions.get('window');
 
 
@@ -32,15 +33,18 @@ const TrendingNews = () => {
       {TRENDING_DATA.map((item) => (
         <Pressable
           key={item.id}
-          className={` h-48 overflow-hidden relative shadow-lg ${item.color}`}
+          className={"w-full h-64 overflow-hidden relative shadow-lg"}
           style={{ width: width}} 
         >
             {({ pressed }) => (
             <>
             <Image 
                 source={{ uri: item.image }} 
-                className="absolute w-full h-full opacity-60"
+                blurRadius={3}
+                className="absolute w-full h-full"
             />
+            {/* Tint Overlay */}
+            <View className={`absolute w-full h-full bg-black opacity-40`}></View>
             <View className="p-6 justify-center h-full">
                 <Text className="text-white text-2xl font-bold mb-2">{item.title}</Text>
                 <Text className="text-gray-200 text-xs w-3/4 mb-4 leading-5">
