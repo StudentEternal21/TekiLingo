@@ -1,5 +1,4 @@
 import { Tabs } from "expo-router";
-import { View } from "react-native";
 import { Home, Search, MessageCircle } from "lucide-react-native";
 import  CustomTabBarButton  from "@/components/CustomTabBarButton";
 

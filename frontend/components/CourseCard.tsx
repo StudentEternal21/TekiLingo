@@ -1,6 +1,4 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import { useRouter } from "expo-router";
-
 
 interface CourseCardProps {
   id: number;
@@ -10,13 +8,15 @@ interface CourseCardProps {
 }
 
 export const CourseCard = ({ id, title, subtitle, image }: CourseCardProps) => {
-  const router = useRouter();
   
   return (
     <TouchableOpacity 
       activeOpacity={0.8}
     
-      onPress={() => router.push(`/course/${id}`)}
+      //! Causes an error: Upon implementation of backend. 
+      //! Remove the comment slashes to enable navigation and import router.
+      //onPress={() => router.push(`/course/${id}`)} 
+      
       className="relative w-32 h-48 mr-3 rounded-2xl overflow-hidden bg-slate-800"
     >
       
