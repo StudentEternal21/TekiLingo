@@ -96,7 +96,49 @@ export const TRENDING_DATA = [
 ];
 
 export const DISCOVER_DATA = [
+    { 
+    id: 1, 
+    title: "Navigating the WEB.", 
+    subtitle: "Click Here to Continue", 
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" 
+  },
   { 
+    id: 2, 
+    title: "Fight the frauds.", 
+    subtitle: "Click Here to Continue", 
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=800&q=80" 
+  },
+  { 
+    id: 3, 
+    title: "AI in modern world.", 
+    subtitle: "Click Here to Continue", 
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" 
+  },
+  { 
+    id: 4,
+    title: "Cybersecurity Basics.",
+    subtitle: "Click Here to Continue",
+    image: "https://images.unsplash.com/photo-1605902711622-cfb43c44367f?auto=format&fit=crop&w=800&q=80"
+  },
+  { 
+    id: 5,
+    title: "Understanding Cloud Computing.",
+    subtitle: "Click Here to Continue",
+    image: "https://images.unsplash.com/photo-1581091012184-5c8af86a6f98?auto=format&fit=crop&w=800&q=80"
+  },
+  { 
+    id: 6,
+    title: "Protecting Your Privacy Online.",
+    subtitle: "Click Here to Continue",
+    image: "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=800&q=80"
+  },
+  { 
+    id: 7,
+    title: "How Algorithms Think.",
+    subtitle: "Click Here to Continue",
+    image: "https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=800&q=80"
+  },
+{ 
     id: 12,
     title: "Understanding Quantum Computing.",
     subtitle: "Click Here to Learn More",

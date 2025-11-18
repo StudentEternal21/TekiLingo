@@ -1,16 +1,34 @@
-import { View, Text } from 'react-native';
-import { MessageCircle } from 'lucide-react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { FlatList, View } from 'react-native';
+import Header from "@/components/Header"; 
+import CustomInput from '@/components/CustomInput';
+import { DISCOVER_DATA } from '@/constants/mockdata';
+import { CourseCard } from '@/components/CourseCard';
 
 export default function ConsultScreen() {
   return (
-    <View className="flex-1 justify-center items-center bg-gray-100">
-      <View className="w-24 h-24 bg-orange-100 rounded-full mb-6 justify-center items-center">
-        <MessageCircle size={48} color="#f97316" fill="currentColor" />
-      </View>
-      <Text className="text-2xl font-bold text-slate-800 mb-2">Consultation</Text>
-      <Text className="text-gray-500 text-center px-10">
-        Chat with Teko to help guide you to your tech worries.
-      </Text>
-    </View>
+    <SafeAreaView className="items-center bg-gray-100">
+      <Header />
+      <FlatList
+        data = {DISCOVER_DATA}
+        numColumns={3}
+        renderItem={({item, index}) => {
+          return (<CourseCard key={item.id} {...item}></CourseCard>);
+        }}
+        ListHeaderComponent={() => { return (
+          <View className="w-full px-4 mt-4 mb-5">
+            <CustomInput 
+              label='Search' 
+              placeholder='Enter course title' 
+              value={""} 
+              onChangeText={() => {}} 
+              keyboardType="default"
+            ></CustomInput>
+          </View>
+        );}}
+        contentContainerClassName='gap-5'
+        showsVerticalScrollIndicator={false}
+      />
+    </SafeAreaView>
   );
 }
