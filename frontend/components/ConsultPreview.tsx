@@ -4,7 +4,7 @@ import React from 'react'
 
 const ConsultPreview = () => {
   return (
-    <View className="flex-1 justify-center items-center bg-gray-100">
+    <View className="flex-1 justify-center items-center bg-gray-100 absolute z-50">
       <View className="w-24 h-24 bg-orange-100 rounded-full mb-6 justify-center items-center">
         <MessageCircle size={48} color="#f97316" fill="currentColor" />
       </View>
